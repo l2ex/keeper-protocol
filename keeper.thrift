@@ -1,14 +1,16 @@
-namespace cl keeper.v010
-namespace cpp keeper.v010
-namespace csharp keeper.v010
-namespace d keeper.v010
-namespace dart keeper.v010
-namespace java keeper.v010
-namespace php keeper.v010
-namespace perl keeper.v010
-namespace haxe keeper.v010
-namespace netcore keeper.v010
-namespace js keeper.v010
+// Version v0.2.1
+
+namespace cl keeper.v0
+namespace cpp keeper.v0
+namespace csharp keeper.v0
+namespace d keeper.v0
+namespace dart keeper.v0
+namespace java keeper.v0
+namespace php keeper.v0
+namespace perl keeper.v0
+namespace haxe keeper.v0
+namespace netcore keeper.v0
+namespace js keeper.v0
 
 enum OrderSide { 
   BUY = 1,
@@ -31,9 +33,9 @@ enum Coin {
   USDT = 101,
   OMG = 102
 
-  EOS = 200,
-  JUNGLE = 201
-  DUC = 202,
+  EOS = 210,
+  JUNGLE = 211
+  DUC = 212,
 
   QTUM = 300,
   INK = 301,
@@ -140,6 +142,11 @@ struct ChainStateResponse {
   4: Address    signer,
   5: map<string, string> meta
 }
+struct CoinDetailsResponse {
+  1: Chain      chain,
+  2: Coin       coin,
+  3: i8         decimals
+}
 struct OrdersListRequest {
   1: i32        page = 0,
   2: i32        per_page = 50,
@@ -180,8 +187,10 @@ service Keeper {
   AuthResponse auth(1: AuthRequest request),
   SignResponse sign(1: SignRequest request),
 
-  map<Chain, ChainStateResponse> chains(),
-  map<Coin, ChannelStateResponse> channels(1: Chain chain),
+  list<CoinDetailsResponse> coins(),
+  list<ChainStateResponse> chains(),
+  
+  list<ChannelStateResponse> channels(),
   ChannelStateResponse channel(1: Coin coin)
 
   OrderResponse new_order(1: OrderCreationRequest request),
