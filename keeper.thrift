@@ -63,7 +63,6 @@ typedef string Id;
 typedef string Nonce;
 typedef string Address;
 typedef string Hash;
-typedef string BigNumber;
 
 typedef Nonce AuthRequestLegacy;
 struct AuthResponseLegacy {
@@ -93,8 +92,8 @@ struct SignResponse {
   5: Address    signer
 }
 struct OrderCreationRequest {
-  1: BigNumber  price,
-  2: BigNumber  quantity,
+  1: i32        price,
+  2: i32        quantity,
   3: OrderSide  side,
   4: Pair       symbol,
   5: Coin       quote,
@@ -114,12 +113,12 @@ struct OrderResponse {
   7: OrderStatus status,
   8: OrderType  type,
   9: OrderSide  side,
-  3: BigNumber  price,
-  4: BigNumber  origQty,
-  5: BigNumber  executedQty,
-  6: BigNumber  cummulativeQuoteQty,
-  10: BigNumber stopPrice,
-  11: BigNumber icebergQty,
+  3: i32        price,
+  4: i32        origQty,
+  5: i32        executedQty,
+  6: i32        cummulativeQuoteQty,
+  10: i32       stopPrice,
+  11: i32       icebergQty,
   12: i32       timestamp,
   13: i32       updateTime,
   15: bool      isWorking
@@ -127,12 +126,12 @@ struct OrderResponse {
 struct ChannelStateResponse {
   1: Coin       coin,
   2: Chain      blockchain,
-  3: BigNumber  available,
-  4: BigNumber  balance,
-  5: BigNumber  total,
-  6: BigNumber  withdrawable,
+  3: i32        available,
+  4: i32        balance,
+  5: i32        total,
+  6: i32        withdrawable,
   7: i32        nonce,
-  8: BigNumber  expiration
+  8: i32        expiration
 }
 struct ChainStateResponse {
   1: Chain      blockchain,
@@ -161,10 +160,10 @@ struct TradeResponse {
   1: Pair       symbol,
   2: Id         id,
   3: Id         orderId,
-  4: BigNumber  price,
-  5: BigNumber  quantity,
-  6: BigNumber  quoteQuantity,
-  7: BigNumber  fee,
+  4: i32        price,
+  5: i32        quantity,
+  6: i32        quoteQuantity,
+  7: i32        fee,
   8: Coin       feeCoin,
   9: i32        timestamp,
  10: bool       buyer, 
