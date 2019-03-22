@@ -1,12 +1,14 @@
-namespace cl keeper v0.1
-namespace cpp keeper v0.1
-namespace d keeper v0.1
-namespace dart keeper v0.1
-namespace java keeper v0.1
-namespace php keeper v0.1
-namespace perl keeper v0.1
-namespace haxe keeper v0.1
-namespace netcore keeper v0.1
+namespace cl keeper.v010
+namespace cpp keeper.v010
+namespace csharp keeper.v010
+namespace d keeper.v010
+namespace dart keeper.v010
+namespace java keeper.v010
+namespace php keeper.v010
+namespace perl keeper.v010
+namespace haxe keeper.v010
+namespace netcore keeper.v010
+namespace js keeper.v010
 
 enum OrderSide { 
   BUY = 1,
